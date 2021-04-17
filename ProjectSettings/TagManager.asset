@@ -11,6 +11,7 @@ TagManager:
   - StarsLevel5
   - Music
   - Prefs
+  - Enemy
   layers:
   - Default
   - TransparentFX
