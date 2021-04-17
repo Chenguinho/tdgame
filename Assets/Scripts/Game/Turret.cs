@@ -5,8 +5,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
 
-    public Transform target;
-    public Transform rotate;
+    private Transform target;
 
     [Header("Posibilidades de la torreta")]
 
@@ -17,6 +16,7 @@ public class Turret : MonoBehaviour
 
     public float turnSpeed = 10f;
     private float fireCountdown = 0f;
+    public Transform rotate;
 
     public GameObject bullet;
     public Transform firePoint;
@@ -68,7 +68,7 @@ public class Turret : MonoBehaviour
         Quaternion look = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(rotate.rotation, look, Time.deltaTime * turnSpeed).eulerAngles;
 
-        rotate.rotation = Quaternion.Euler(0f, rotation.y, range);
+        rotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
         if(fireCountdown <= 0f)
         {

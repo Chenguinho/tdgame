@@ -5,6 +5,8 @@ using UnityEngine;
 public class BuildManager : MonoBehaviour
 {
 
+    #region Singleton (solo una instancia)
+
     public static BuildManager instance;
 
     void Awake()
@@ -17,18 +19,24 @@ public class BuildManager : MonoBehaviour
         instance = this;    
     }
 
-    public GameObject stTurret;
+    #endregion
+
+    [Header("Tipos de torres")]
+
+    public GameObject stTurret, missileTower;
 
     private GameObject turretToBuild;
 
-    void Start()
-    {
-        turretToBuild = stTurret;
-    }
+    //GET Y SET
 
     public GameObject GetTurretToBuild()
     {
         return turretToBuild;
+    }
+
+    public void SetTurretToBuild(GameObject t)
+    {
+        turretToBuild = t;
     }
 
 }
