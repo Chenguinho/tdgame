@@ -22,21 +22,41 @@ public class BuildManager : MonoBehaviour
     #endregion
 
     [Header("Tipos de torres")]
-
     public GameObject stTurret, missileTower;
 
-    private GameObject turretToBuild;
+    [Header("Efecto de construcción")]
+    public GameObject placeTowerEffect;
 
-    //GET Y SET
+    private TowerBlueprint towerToBuild;
 
-    public GameObject GetTurretToBuild()
+    public bool CanBuild { get { return towerToBuild != null; } }
+    public bool HasMoney { get { return CurrentGame.Money >= towerToBuild.cost; } }
+
+    //SET
+
+    public void SelectTowerToBuild(TowerBlueprint tower)
     {
-        return turretToBuild;
+        towerToBuild = tower;
     }
 
-    public void SetTurretToBuild(GameObject t)
+    public void BuildTowerOn(Node n)
     {
-        turretToBuild = t;
+
+        if(CurrentGame.Money < towerToBuild.cost)
+        {
+            //Mostrar info
+            Debug.Log("No tienes pasta");
+            return;
+        }
+
+        CurrentGame.Money -= towerToBuild.cost;
+
+        GameObject tower = (GameObject) Instantiate(towerToBuild.prefab, n.GetBuildPosition(), Quaternion.identity);
+        n.tower = tower;
+
+        GameObject effect = (GameObject)Instantiate(placeTowerEffect, n.GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 3f);
+
     }
 
 }

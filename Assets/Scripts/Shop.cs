@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
+    [Header("Blueprint de torretas")]
+    public TowerBlueprint stTurret, missileLauncher;
 
     BuildManager build;
 
@@ -12,14 +14,27 @@ public class Shop : MonoBehaviour
         build = BuildManager.instance; 
     }
 
-    public void PurchaseTurret()
+    public void SelectTurret()
     {
-        build.SetTurretToBuild(build.stTurret);
+        build.SelectTowerToBuild(stTurret);
     }
 
-    public void PurchaseLauncher()
+    public void SelectLauncher()
     {
-        build.SetTurretToBuild(build.missileTower);
+        build.SelectTowerToBuild(missileLauncher);
+    }
+
+    public TowerBlueprint GetTower(int i)
+    {
+        switch (i)
+        {
+            case 0:
+                return stTurret;
+            case 1:
+                return missileLauncher;
+            default:
+                return null;
+        }
     }
 
 }

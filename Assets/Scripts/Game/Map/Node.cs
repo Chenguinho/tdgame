@@ -6,10 +6,14 @@ using UnityEngine.EventSystems;
 public class Node : MonoBehaviour
 {
 
-    public Color hoverColor;
+    [Header("Personalización")]
+    public Color hoverColor, notMoneyColor;
+
+    [Header("Dónde colocar la torre (no tocar)")]
     public Vector3 offset;
 
-    private GameObject turret;
+    [Header("Opcional")]
+    public GameObject tower;
 
     private Renderer rend;
     private Color startColor;
@@ -29,18 +33,17 @@ public class Node : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (build.GetTurretToBuild() == null)
+        if (!build.CanBuild)
             return;
 
-        if(turret != null)
+        if(tower != null)
         {
             //Info en algun lado
             Debug.Log("Ahi no");
             return;
         }
 
-        GameObject turretToBuild = build.GetTurretToBuild();
-        turret = (GameObject) Instantiate(turretToBuild, transform.position + offset, transform.rotation);
+        build.BuildTowerOn(this);
 
     }
 
@@ -49,15 +52,27 @@ public class Node : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (build.GetTurretToBuild() == null)
+        if (!build.CanBuild)
             return;
+        if (build.HasMoney)
+        {
+            rend.material.color = hoverColor;
+        } else
+        {
+            rend.material.color = notMoneyColor;
+        }
 
-        rend.material.color = hoverColor;
+        
     }
 
     void OnMouseExit()
     {
         rend.material.color = startColor;
+    }
+
+    public Vector3 GetBuildPosition()
+    {
+        return transform.position + offset;
     }
 
 }

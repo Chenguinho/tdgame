@@ -10,7 +10,7 @@ public class WaveSpawner : MonoBehaviour
 
     public Transform spawnPoint;
 
-    public float time = 5.3f;
+    public float time = 5f;
     private float countdown = 2f;
 
     public TextMeshProUGUI countdownText;
@@ -27,7 +27,10 @@ public class WaveSpawner : MonoBehaviour
         }
 
         countdown -= Time.deltaTime;
-        countdownText.text = Mathf.Round(countdown + 1).ToString();
+
+        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
+
+        countdownText.text = string.Format("{0:00.00}", countdown);
 
     }
 
