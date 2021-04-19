@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public Vector3 offset;
 
     public Transform enemyPrefab;
 
@@ -50,7 +51,7 @@ public class WaveSpawner : MonoBehaviour
     void SpawnEnemy()
     {
 
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(enemyPrefab, spawnPoint.position + offset, spawnPoint.rotation);
 
     }
 

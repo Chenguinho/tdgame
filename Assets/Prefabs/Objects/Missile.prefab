@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 35
   explosionRadius: 10
+  damage: 40
   effect: {fileID: 8054234721413945378, guid: 25e57e1bfd3f64eda9152e4b2b524836, type: 3}
 --- !u!1 &8242650383025444793
 GameObject:

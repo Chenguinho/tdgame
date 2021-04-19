@@ -21,9 +21,6 @@ public class BuildManager : MonoBehaviour
 
     #endregion
 
-    [Header("Tipos de torres")]
-    public GameObject stTurret, missileTower;
-
     [Header("Efecto de construcción")]
     public GameObject placeTowerEffect;
 

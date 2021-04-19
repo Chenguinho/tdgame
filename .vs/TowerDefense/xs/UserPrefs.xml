@@ -1,8 +1,9 @@
 ﻿<Properties StartupConfiguration="{17BB7AF0-A1AD-DCE4-09CE-1D3A3635465B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Game/GameManager/WaveSpawner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Game/Objects/EnemyMovement.cs">
     <Files>
-      <File FileName="Assets/Scripts/Game/GameManager/WaveSpawner.cs" Line="13" Column="26" />
-      <File FileName="Assets/Scripts/Interface/TowerPrice.cs" Line="16" Column="59" />
+      <File FileName="Assets/Scripts/Game/Objects/Enemy.cs" Line="33" Column="23" />
+      <File FileName="Assets/Scripts/Game/Objects/Turret.cs" Line="28" Column="26" />
+      <File FileName="Assets/Scripts/Game/Objects/EnemyMovement.cs" Line="30" Column="40" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,10 +13,10 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Data" expanded="True" />
                 <Node name="Game" expanded="True">
-                  <Node name="GameManager" expanded="True">
-                    <Node name="WaveSpawner.cs" selected="True" />
+                  <Node name="GameManager" expanded="True" />
+                  <Node name="Objects" expanded="True">
+                    <Node name="EnemyMovement.cs" selected="True" />
                   </Node>
-                  <Node name="Map" expanded="True" />
                 </Node>
                 <Node name="Interface" expanded="True" />
               </Node>
@@ -27,7 +28,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="34a8f662-4fa7-4ca1-9573-ead08c2bbc16" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="06f6d1a3-ac35-45cb-a159-fc06fe3e91cb" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

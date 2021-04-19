@@ -55,27 +55,30 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/Interface/LivesUI.cs" />
     <Compile Include="Assets/Scripts/Data/Player.cs" />
+    <Compile Include="Assets/Scripts/Game/GameManager/GameManager.cs" />
     <Compile Include="Assets/Scripts/Shop.cs" />
     <Compile Include="Assets/Scripts/Game/GameManager/BuildManager.cs" />
-    <Compile Include="Assets/Scripts/Game/Bullet.cs" />
+    <Compile Include="Assets/Scripts/Interface/PriceUI.cs" />
+    <Compile Include="Assets/Scripts/Data/CurrentGame.cs" />
+    <Compile Include="Assets/Scripts/Game/Objects/Bullet.cs" />
     <Compile Include="Assets/Scripts/Data/SaveSystem.cs" />
     <Compile Include="Assets/Scripts/Interface/MainMenu.cs" />
     <Compile Include="Assets/Scripts/Data/Music.cs" />
     <Compile Include="Assets/Scripts/Data/PlayerData.cs" />
     <Compile Include="Assets/Scripts/CameraController.cs" />
     <Compile Include="Assets/Scripts/Game/Map/Waypoints.cs" />
+    <Compile Include="Assets/Scripts/Data/TurretBlueprint.cs" />
     <Compile Include="Assets/Scripts/Interface/OptionsMenu.cs" />
     <Compile Include="Assets/Scripts/Interface/UserInterface.cs" />
     <Compile Include="Assets/Scripts/Game/GameManager/WaveSpawner.cs" />
     <Compile Include="Assets/Scripts/Game/Map/Node.cs" />
     <Compile Include="Assets/Scripts/Data/PlayerPrefs.cs" />
-    <Compile Include="Assets/Scripts/Game/Enemy.cs" />
-    <Compile Include="Assets/Scripts/Game/Turret.cs" />
-    <Compile Include="Assets/Scripts/TurretBlueprint.cs" />
-    <Compile Include="Assets/Scripts/Data/CurrentGame.cs" />
+    <Compile Include="Assets/Scripts/Game/Objects/Enemy.cs" />
     <Compile Include="Assets/Scripts/Interface/MoneyUI.cs" />
-    <Compile Include="Assets/Scripts/Interface/TowerPrice.cs" />
+    <Compile Include="Assets/Scripts/Game/Objects/Turret.cs" />
+    <Compile Include="Assets/Scripts/Game/Objects/EnemyMovement.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

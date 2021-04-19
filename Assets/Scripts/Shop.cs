@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
     [Header("Blueprint de torretas")]
-    public TowerBlueprint stTurret, missileLauncher;
+    public TowerBlueprint stTurret, missileLauncher, laserBeamer;
 
     BuildManager build;
 
@@ -24,6 +24,11 @@ public class Shop : MonoBehaviour
         build.SelectTowerToBuild(missileLauncher);
     }
 
+    public void SelectLaser()
+    {
+        build.SelectTowerToBuild(laserBeamer);
+    }
+
     public TowerBlueprint GetTower(int i)
     {
         switch (i)
@@ -32,6 +37,8 @@ public class Shop : MonoBehaviour
                 return stTurret;
             case 1:
                 return missileLauncher;
+            case 2:
+                return laserBeamer;
             default:
                 return null;
         }
