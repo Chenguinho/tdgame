@@ -5,7 +5,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    private bool gameEnded = false;
+    public GameObject gameOverPanel;
+
+    public static bool gameEnded;
+
+    void Start()
+    {
+        gameEnded = false;
+    }
 
     void Update()
     {
@@ -21,6 +28,6 @@ public class GameManager : MonoBehaviour
     void EndGame()
     {
         gameEnded = true;
-        Debug.Log("Se acabo...");
+        gameOverPanel.SetActive(true);
     }
 }

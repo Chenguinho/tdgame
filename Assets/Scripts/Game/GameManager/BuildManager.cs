@@ -21,39 +21,50 @@ public class BuildManager : MonoBehaviour
 
     #endregion
 
-    [Header("Efecto de construcción")]
+    [Header("Efectos")]
     public GameObject placeTowerEffect;
+    public GameObject sellTowerEffect;
 
     private TowerBlueprint towerToBuild;
+    private Node selectedNode;
+
+    public TowerUI towerUI;
 
     public bool CanBuild { get { return towerToBuild != null; } }
     public bool HasMoney { get { return CurrentGame.Money >= towerToBuild.cost; } }
 
-    //SET
-
     public void SelectTowerToBuild(TowerBlueprint tower)
     {
         towerToBuild = tower;
+        selectedNode = null;
+
+        towerUI.Hide();
     }
 
-    public void BuildTowerOn(Node n)
+    public void SelectNode(Node node)
     {
 
-        if(CurrentGame.Money < towerToBuild.cost)
+        if(selectedNode == node)
         {
-            //Mostrar info
-            Debug.Log("No tienes pasta");
+            DeselectNode();
             return;
         }
 
-        CurrentGame.Money -= towerToBuild.cost;
+        selectedNode = node;
+        towerToBuild = null;
 
-        GameObject tower = (GameObject) Instantiate(towerToBuild.prefab, n.GetBuildPosition(), Quaternion.identity);
-        n.tower = tower;
+        towerUI.SetTarget(node);
+    }
 
-        GameObject effect = (GameObject)Instantiate(placeTowerEffect, n.GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 3f);
+    public void DeselectNode()
+    {
+        selectedNode = null;
+        towerUI.Hide();
+    }
 
+    public TowerBlueprint GetTowerToBuild()
+    {
+        return towerToBuild;
     }
 
 }

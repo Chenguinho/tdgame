@@ -1,9 +1,7 @@
 ﻿<Properties StartupConfiguration="{17BB7AF0-A1AD-DCE4-09CE-1D3A3635465B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Game/Objects/EnemyMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Interface/PauseMenu.cs">
     <Files>
-      <File FileName="Assets/Scripts/Game/Objects/Enemy.cs" Line="33" Column="23" />
-      <File FileName="Assets/Scripts/Game/Objects/Turret.cs" Line="28" Column="26" />
-      <File FileName="Assets/Scripts/Game/Objects/EnemyMovement.cs" Line="30" Column="40" />
+      <File FileName="Assets/Scripts/Interface/PauseMenu.cs" Line="46" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,14 +9,10 @@
           <Node name="TowerDefense" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Data" expanded="True" />
-                <Node name="Game" expanded="True">
-                  <Node name="GameManager" expanded="True" />
-                  <Node name="Objects" expanded="True">
-                    <Node name="EnemyMovement.cs" selected="True" />
-                  </Node>
+                <Node name="Game" expanded="True" />
+                <Node name="Interface" expanded="True">
+                  <Node name="PauseMenu.cs" selected="True" />
                 </Node>
-                <Node name="Interface" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -28,7 +22,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="06f6d1a3-ac35-45cb-a159-fc06fe3e91cb" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="16072a22-bb02-4764-9460-6182f53c58b0" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

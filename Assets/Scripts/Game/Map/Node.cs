@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Node : MonoBehaviour
 {
@@ -12,8 +13,12 @@ public class Node : MonoBehaviour
     [Header("Dónde colocar la torre (no tocar)")]
     public Vector3 offset;
 
-    [Header("Opcional")]
+    [HideInInspector]
     public GameObject tower;
+    [HideInInspector]
+    public TowerBlueprint towerBlueprint;
+    [HideInInspector]
+    public bool isUpgraded = false;
 
     private Renderer rend;
     private Color startColor;
@@ -28,22 +33,23 @@ public class Node : MonoBehaviour
         build = BuildManager.instance;
     }
 
+    #region Metodos OnMouse[Action]()
+
     void OnMouseDown()
     {
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (!build.CanBuild)
-            return;
-
         if(tower != null)
         {
-            //Info en algun lado
-            Debug.Log("Ahi no");
+            build.SelectNode(this);
             return;
         }
 
-        build.BuildTowerOn(this);
+        if (!build.CanBuild)
+            return;
+
+        BuildTower(build.GetTowerToBuild());
 
     }
 
@@ -70,9 +76,70 @@ public class Node : MonoBehaviour
         rend.material.color = startColor;
     }
 
+    #endregion
+
     public Vector3 GetBuildPosition()
     {
         return transform.position + offset;
     }
+
+    #region Acciones con las diferentes torres
+
+    void BuildTower(TowerBlueprint blueprint)
+    {
+        if (CurrentGame.Money < blueprint.cost)
+        {
+            //Mostrar info
+            Debug.Log("No tienes pasta");
+            return;
+        }
+
+        CurrentGame.Money -= blueprint.cost;
+
+        GameObject t = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
+        tower = t;
+
+        towerBlueprint = blueprint;
+
+        GameObject effect = (GameObject)Instantiate(build.placeTowerEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 3f);
+    }
+
+    public void UpgradeTower()
+    {
+        if (CurrentGame.Money < towerBlueprint.upgradeCost)
+        {
+            //Mostrar info
+            Debug.Log("No tienes pasta");
+            return;
+        }
+
+        CurrentGame.Money -= towerBlueprint.upgradeCost;
+
+        Destroy(tower);
+
+        GameObject t = (GameObject)Instantiate(towerBlueprint.upgradedPrefab, GetBuildPosition(), Quaternion.identity);
+        tower = t;
+
+        GameObject effect = (GameObject)Instantiate(build.placeTowerEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 3f);
+
+        isUpgraded = true;
+    }
+
+    public void SellTower()
+    {
+
+        CurrentGame.Money += towerBlueprint.sellCost;
+
+        Destroy(tower);
+        towerBlueprint = null;
+
+        GameObject effect = (GameObject)Instantiate(build.sellTowerEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 2.5f);
+
+    }
+
+    #endregion
 
 }

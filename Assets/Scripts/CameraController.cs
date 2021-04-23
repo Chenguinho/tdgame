@@ -15,6 +15,12 @@ public class CameraController : MonoBehaviour
     void Update()
     {
 
+        if (GameManager.gameEnded)
+        {
+            this.enabled = false;
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (move)

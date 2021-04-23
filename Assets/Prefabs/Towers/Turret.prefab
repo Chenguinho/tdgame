@@ -46,10 +46,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
+  bullet: {fileID: 4901249866782681808, guid: 0e868f13f6d0441e6ad90f69fe69e1f7, type: 3}
   fireRate: 1
+  useLaser: 0
+  lineRenderer: {fileID: 0}
+  impactEffect: {fileID: 0}
+  impactLight: {fileID: 0}
+  damage: 25
+  slow: 0.35
   turnSpeed: 10
   rotate: {fileID: 7320115885695253602}
-  bullet: {fileID: 4901249866782681808, guid: 0e868f13f6d0441e6ad90f69fe69e1f7, type: 3}
   firePoint: {fileID: 2810501881706737395}
 --- !u!1 &1256989831649506062
 GameObject:
@@ -208,7 +214,7 @@ GameObject:
   - component: {fileID: 4564060591514669333}
   - component: {fileID: 1332632227765679991}
   m_Layer: 0
-  m_Name: Turret.001
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
