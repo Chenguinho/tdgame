@@ -43,7 +43,10 @@ public class EnemyMovement : MonoBehaviour
 
     void PathEnd()
     {
-        CurrentGame.Lives--;
+        if(CurrentGame.Lives > 0)
+            CurrentGame.Lives--;
+
+        WaveSpawner.enemiesAlive--;
         Destroy(gameObject);
     }
 

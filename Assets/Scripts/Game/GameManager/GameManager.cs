@@ -5,9 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public GameObject gameOverPanel;
+    public GameObject gameOverPanel, winPanel;
 
-    public static bool gameEnded;
+    public static bool gameEnded, gameWon;
+
+    public DataStorer dataStorer;
 
     void Start()
     {
@@ -19,7 +21,7 @@ public class GameManager : MonoBehaviour
         if (gameEnded)
             return;
 
-        if(CurrentGame.Lives < 0)
+        if(CurrentGame.Lives <= 0)
         {
             EndGame();
         }
@@ -30,4 +32,12 @@ public class GameManager : MonoBehaviour
         gameEnded = true;
         gameOverPanel.SetActive(true);
     }
+
+    public void WinGame()
+    {
+        gameEnded = true;
+        winPanel.SetActive(true);
+        dataStorer.StoreData();
+    }
+
 }

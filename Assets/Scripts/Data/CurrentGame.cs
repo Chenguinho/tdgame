@@ -20,5 +20,4 @@ public class CurrentGame : MonoBehaviour
         Points = 0;
         Stars = 0;
     }
-
 }

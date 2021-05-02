@@ -12,10 +12,13 @@ public class Enemy : MonoBehaviour
     public float startSpeed = 10f;
     public float startHealth = 100;
     public int money = 25;
+    public int points = 10;
     public GameObject deathEffect;
 
     [Header("Barra de vida")]
     public Image healthBar;
+
+    private bool isDead = false;
 
     void Start()
     {
@@ -29,7 +32,7 @@ public class Enemy : MonoBehaviour
 
         healthBar.fillAmount = Health / startHealth;
 
-        if(Health <= 0)
+        if(Health <= 0 && !isDead)
         {
             Die();
         }
@@ -42,7 +45,12 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+
+        isDead = true;
+
         CurrentGame.Money += money;
+        CurrentGame.Points += points;
+        WaveSpawner.enemiesAlive--;
 
         GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 3.5f);

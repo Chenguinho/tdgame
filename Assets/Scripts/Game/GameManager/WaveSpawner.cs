@@ -2,30 +2,70 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public Vector3 offset;
 
-    public Transform enemyPrefab;
+    public GameManager gameManager;
 
-    public Transform spawnPoint;
+    [HideInInspector]
+    public static int enemiesAlive = 0;
+    public static int enemiesCount = 0;
 
+    [Header("Oleadas")]
+    public Wave[] waves;
+
+
+    [Header("Tiempo entre oleadas")]
     public float time = 5f;
+
+    [Header("Unity")]
+    public Vector3 offset;
+    public Transform spawnPoint;
+    public TextMeshProUGUI countdownText, progressText;
+
     private float countdown = 2f;
+    [HideInInspector]
+    public int waveIndex = 0;
+    private Wave w;
+    private bool finished = true;
 
-    public TextMeshProUGUI countdownText;
 
-    private int waveIndex = 0;
+    void Start()
+    {
+        w = waves[waveIndex];
+        progressText.text = waveIndex + "/" + waves.Length;
+    }
 
     void Update()
     {
 
-        if(countdown <= 0f)
+        if (enemiesCount == w.count)
+            finished = true;
+
+        if (enemiesAlive > 0)
+            return;
+
+        if (waveIndex == waves.Length && CurrentGame.Lives > 0)
         {
+            gameManager.WinGame();
+            this.enabled = false;
+            return;
+        }
+
+        if (countdown <= 0f && !GameManager.gameEnded)
+        {
+            progressText.text = waveIndex + 1 + "/" + waves.Length;
+            enemiesCount = 0;
             StartCoroutine(SpawnWave());
             countdown = time;
+            finished = false;
+            return;
         }
+
+        if (!finished)
+            return;
 
         countdown -= Time.deltaTime;
 
@@ -38,21 +78,23 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
 
-        waveIndex++;
+        w = waves[waveIndex];
 
-        for (int i = 0; i < waveIndex; i++)
+        for (int i = 0; i < w.count; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
+            SpawnEnemy(w.enemy);
+            yield return new WaitForSeconds(1f / w.rate);
         }
+
+        waveIndex++;
 
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(GameObject enemy)
     {
-
-        Instantiate(enemyPrefab, spawnPoint.position + offset, spawnPoint.rotation);
-
+        Instantiate(enemy, spawnPoint.position + offset, spawnPoint.rotation);
+        enemiesAlive++;
+        enemiesCount++;
     }
 
 }

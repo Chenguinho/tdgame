@@ -13,7 +13,7 @@ public class GameOver : MonoBehaviour
 
     void OnEnable()
     {
-        points.text = CurrentGame.Points.ToString();
+        StartCoroutine(AnimateText());
         Stars = CurrentGame.Stars;
         switch (Stars)
         {
@@ -35,6 +35,33 @@ public class GameOver : MonoBehaviour
                 return;
         }
         
+    }
+
+    IEnumerator AnimateText()
+    {
+        points.text = "0";
+        int round = 0;
+
+        yield return new WaitForSeconds(.7f);
+
+        while (round < CurrentGame.Points)
+        {
+            if (round + 5 < CurrentGame.Points)
+            {
+                round += 5;
+                points.text = round.ToString();
+
+                yield return new WaitForSeconds(.005f);
+            }
+            else
+            {
+                round++;
+                points.text = round.ToString();
+
+                yield return new WaitForSeconds(.4f);
+            }
+
+        }
     }
 
     public void Retry()
