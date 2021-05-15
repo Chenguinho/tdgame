@@ -8,7 +8,7 @@ public class BuildManager : MonoBehaviour
     #region Singleton (solo una instancia)
 
     public static BuildManager instance;
-
+    
     void Awake()
     {
         if(instance != null)

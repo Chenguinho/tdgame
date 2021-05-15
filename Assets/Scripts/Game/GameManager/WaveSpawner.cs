@@ -21,11 +21,10 @@ public class WaveSpawner : MonoBehaviour
     public float time = 5f;
 
     [Header("Unity")]
-    public Vector3 offset;
     public Transform spawnPoint;
     public TextMeshProUGUI countdownText, progressText;
 
-    private float countdown = 2f;
+    private float countdown = 5f;
     [HideInInspector]
     public int waveIndex = 0;
     private Wave w;
@@ -34,18 +33,25 @@ public class WaveSpawner : MonoBehaviour
 
     void Start()
     {
+        enemiesAlive = 0;
+        enemiesCount = 0;
         w = waves[waveIndex];
         progressText.text = waveIndex + "/" + waves.Length;
+        countdownText.text = string.Format("{0:00.00}", countdown);
     }
 
     void Update()
-    {
+    { 
 
         if (enemiesCount == w.count)
+        {
             finished = true;
+        }
 
         if (enemiesAlive > 0)
+        {
             return;
+        }
 
         if (waveIndex == waves.Length && CurrentGame.Lives > 0)
         {
@@ -65,7 +71,9 @@ public class WaveSpawner : MonoBehaviour
         }
 
         if (!finished)
+        {
             return;
+        }
 
         countdown -= Time.deltaTime;
 
@@ -92,7 +100,7 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnEnemy(GameObject enemy)
     {
-        Instantiate(enemy, spawnPoint.position + offset, spawnPoint.rotation);
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         enemiesAlive++;
         enemiesCount++;
     }

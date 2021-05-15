@@ -8,8 +8,6 @@ public class TowerUI : MonoBehaviour
 {
     [Header("Descripciones de las torres")]
     public TextMeshProUGUI towerName, towerDescription;
-    public string turretName, turretDesc, launcherName,
-        launcherDesc, laserName, laserDesc;
 
     [Header("Texto")]
     public Text costText, sellText;
