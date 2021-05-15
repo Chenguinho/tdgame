@@ -1,10 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.Networking;
 
 public class UserInterface : MonoBehaviour
 {
@@ -29,7 +28,7 @@ public class UserInterface : MonoBehaviour
     GameObject player;
     public GameObject playerPrefs;
     string username;
-    int recordLevel, recordStars, recordPoints;
+    int recordLevel, recordStars, recordPoints, userId;
 
     void Start()
     {
@@ -41,15 +40,26 @@ public class UserInterface : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerPrefs = GameObject.FindGameObjectWithTag("Prefs");
 
-        //Recogemos los datos del usuario cada vez que entramos en la escena
-        username = player.GetComponent<Player>().getUsername();
-        recordLevel = player.GetComponent<Player>().getLevel();
-        recordStars = player.GetComponent<Player>().getStars();
-        recordPoints = player.GetComponent<Player>().getPoints();
+        /*
+         * Cada vez que entremos a esta escena tendremos que
+         * volver a cargar la información del usuario
+        */
 
-        usernameText.text = username;
-        starsText.text = recordStars.ToString();
-        pointsText.text = recordPoints.ToString();
+        if (playerPrefs.GetComponent<PlayerPrefs>().getSource() != "MainMenu")
+        {
+            if (GetPlayer().getId() == 0)
+            {
+                GetPlayer().LoadPlayer(GetPlayer().getUsername());
+            }
+            else
+            {
+                ReloadData();
+            }
+        }
+
+        usernameText.text = GetPlayer().getUsername();
+        starsText.text = GetPlayer().getStars().ToString();
+        pointsText.text = GetPlayer().getPoints().ToString();
 
         //Marcamos las estadisticas del nivel 1
         //Puntuacion record en el nivel
@@ -60,11 +70,17 @@ public class UserInterface : MonoBehaviour
         SetActiveStars(lStars, stars1);
 
         //Hacemos visibles los niveles que el usuario tenga
-        if (recordLevel != 1)
+        if (GetPlayer().getLevel() != 1)
         {
-            VisibleLevels(recordLevel);
+            VisibleLevels(GetPlayer().getLevel());
         }
+
     }
+
+    /*
+     * En Update tenemos que estar comprobando la pulsacion
+     * de la tecla M para mostrar el menu al usuario
+     */
 
     void Update()
     {
@@ -148,35 +164,107 @@ public class UserInterface : MonoBehaviour
 
     #endregion
 
+    #region Recargar información del usuario online
+
+    void ReloadData()
+    {
+        StartCoroutine(Reload());
+    }
+
+    IEnumerator Reload()
+    {
+        string url = "http://chenguinho.zapto.org/tdgame/phpUnity/getUserData.php";
+
+        WWWForm form = new WWWForm();
+
+        form.AddField("id", GetPlayer().getId());
+
+        using(UnityWebRequest www = UnityWebRequest.Post(url, form))
+        {
+
+            yield return www.SendWebRequest();
+
+            if(www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            } else
+            {
+                string var = www.downloadHandler.text;
+                if(var != "1")
+                {
+                    string[] values = var.Split(","[0]);
+
+                    int level = int.Parse(values[0]);
+                    int points = int.Parse(values[1]);
+                    int stars = int.Parse(values[2]);
+
+                    player.GetComponent<Player>().setLevel(level);
+                    player.GetComponent<Player>().setPoints(points);
+                    player.GetComponent<Player>().setStars(stars);
+
+                    AssignOnlineLevelStats(level, values, player.GetComponent<Player>());
+
+                    Debug.Log("TODO OK");
+
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                } else
+                {
+                    Debug.Log("ERROR AL RECUPERAR LA INFORMACIÓN");
+                }
+            }
+
+        }
+    }
+
+    public void AssignOnlineLevelStats(int l, string[] values, Player p)
+    {
+        for (int i = 1; i <= l; i++)
+        {
+            p.setLevelStats(
+                i,
+                int.Parse(values[i + (i + 1)]),
+                int.Parse(values[i + (i + 2)])
+            );
+        }
+    }
+
+    #endregion
+
     #region Funciones para ir a los niveles
 
     public void GoToLevel1()
     {
+        playerPrefs.GetComponent<PlayerPrefs>().setSource("Level1");
         SceneManager.LoadScene("Level1");
     }
 
     public void GoToLevel2()
     {
+        playerPrefs.GetComponent<PlayerPrefs>().setSource("Level2");
         SceneManager.LoadScene("Level2");
     }
 
     public void GoToLevel3()
     {
+        playerPrefs.GetComponent<PlayerPrefs>().setSource("Level3");
         SceneManager.LoadScene("Level3");
     }
 
     public void GoToLevel4()
     {
+        playerPrefs.GetComponent<PlayerPrefs>().setSource("Level4");
         SceneManager.LoadScene("Level4");
     }
 
     public void GoToLevel5()
     {
+        playerPrefs.GetComponent<PlayerPrefs>().setSource("Level5");
         SceneManager.LoadScene("Level5");
     }
 
     public void GoToMenu()
     {
+        playerPrefs.GetComponent<PlayerPrefs>().setSource("LevelMenu");
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -197,7 +285,5 @@ public class UserInterface : MonoBehaviour
     {
         return player.GetComponent<Player>();
     }
-
-
 
 }

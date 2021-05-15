@@ -21,28 +21,6 @@ public class PlayerPrefs : MonoBehaviour
     //Volumen
     static public float volume;
 
-    //Inicialización
-    /*
-    public void GetAllData()
-    {
-        res = Screen.resolutions;
-
-        for(int i = 0; i < res.Length; i++)
-        {
-            string option = res[i].width + "x" + res[i].height;
-            resList.Add(option);
-
-            if (res[i].width == Screen.currentResolution.width &&
-                res[i].height == Screen.currentResolution.height)
-            {
-                rIndex = i;
-            }
-        }
-
-        qIndex = QualitySettings.GetQualityLevel();
-        full = Screen.fullScreen;
-    }
-    */
     //SET y GET
     
     public void setSource(string s)

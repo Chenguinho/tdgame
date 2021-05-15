@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     public DataStorer dataStorer;
 
+    public int level;
+
     void Start()
     {
         gameEnded = false;

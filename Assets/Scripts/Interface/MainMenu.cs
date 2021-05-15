@@ -1,10 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -439,6 +436,7 @@ public class MainMenu : MonoBehaviour
 
     public void GoToLevelMenu()
     {
+        playerPrefs.GetComponent<PlayerPrefs>().setSource("MainMenu");
         SceneManager.LoadScene("LevelMenu");
     }
 

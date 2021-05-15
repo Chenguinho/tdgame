@@ -15,6 +15,8 @@ public class LevelWon : MonoBehaviour
     public CurrentGame current;
     public Timer timer;
 
+    public string level = "Level1";
+
     void OnEnable()
     {
         CurrentGame.Points = CalculatePoints();
@@ -87,7 +89,7 @@ public class LevelWon : MonoBehaviour
         }
     }
 
-    int CalculatePoints()
+    public int CalculatePoints()
     {
         int returnValue = CurrentGame.Points;
 
@@ -102,7 +104,7 @@ public class LevelWon : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(level);
     }
 
     public void Back()
