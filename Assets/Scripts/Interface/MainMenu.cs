@@ -14,7 +14,9 @@ public class MainMenu : MonoBehaviour
     //Paneles que tienen contenido y tenemos que manejar
     public GameObject pPrincipal, pNewGame,
         pHelp, pOnline, pLocal, pSelectGame,
-        pPopupExists, pPopupNotFound, pPopUpConnect;
+        pPopupExists, pPopupNotFound, pPopUpConnect,
+        pPopUpConnecting, pPopUpCheckingData, pPopUpWrongUser,
+        pPopUpUnknownError, pPopUpRegistered, pPopUpRegistering;
 
     //Inputs para introducir datos
     public TMP_InputField nameInput, userRegistration, passwordRegistration,
@@ -165,11 +167,14 @@ public class MainMenu : MonoBehaviour
 
             if (www.isNetworkError || www.isHttpError)
             {
-                //Habria que hacer un pop-up
-                Debug.Log(www.error);
+                pPopUpRegistering.SetActive(false);
+                pPopUpUnknownError.SetActive(true);
             }
             else
             {
+
+                pPopUpRegistering.SetActive(false);
+
                 if(int.Parse(www.downloadHandler.text) > 0)
                 {
                     //Nombre del usuario
@@ -189,13 +194,11 @@ public class MainMenu : MonoBehaviour
                 }
                 else if(int.Parse(www.downloadHandler.text) == -1)
                 {
-                    //Habria que hacer un pop-up
-                    Debug.Log("Usuario ya en el sistema");
+                    pPopUpRegistered.SetActive(true);
                 }
                 else if (int.Parse(www.downloadHandler.text) == -2)
                 {
-                    //Habria que hacer un pop-up
-                    Debug.Log("Se produjo un error inesperado");
+                    pPopUpUnknownError.SetActive(true);
                 }
             }
         }
@@ -238,8 +241,8 @@ public class MainMenu : MonoBehaviour
 
             if (www.isNetworkError || www.isHttpError)
             {
-                //Habria que poner pop up
-                Debug.Log(www.error);
+                pPopUpCheckingData.SetActive(false);
+                pPopUpUnknownError.SetActive(true);
             }
             else
             {
@@ -254,10 +257,11 @@ public class MainMenu : MonoBehaviour
                     player.GetComponent<Player>().InitStats();
                     player.GetComponent<Player>().setUsername(username);
                     StartCoroutine(GetUserData(int.Parse(www.downloadHandler.text)));
+
                 } else if(int.Parse(www.downloadHandler.text) == -1)
                 {
-                    //Habria que hacer pop-up
-                    Debug.Log("No se ha reconocido al usuario");
+                    pPopUpCheckingData.SetActive(false);
+                    pPopUpWrongUser.SetActive(true);
                 }
                 
             }
@@ -277,17 +281,19 @@ public class MainMenu : MonoBehaviour
 
             if(www.isNetworkError || www.isHttpError)
             {
-                //Habria que poner pop up
-                Debug.Log(www.error);
+                pPopUpCheckingData.SetActive(false);
+                pPopUpUnknownError.SetActive(true);
             } else
             {
                 string var = www.downloadHandler.text;
                 if(var.Length < 3)
                 {
-                    //Habria que poner pop-up
-                    Debug.Log("Error en la obtencion del id " + www.downloadHandler.text);
+                    pPopUpCheckingData.SetActive(false);
+                    pPopUpUnknownError.SetActive(true);
                 } else
                 {
+                    pPopUpCheckingData.SetActive(false);
+
                     string[] values = var.Split(","[0]);
                     int level = int.Parse(values[0]);
                     int points = int.Parse(values[1]);
@@ -336,11 +342,13 @@ public class MainMenu : MonoBehaviour
 
             if (www.isNetworkError || www.isHttpError)
             {
+                pPopUpConnecting.SetActive(false);
                 conErr.text = "No se pudo conectar con el servidor: " + www.error;
                 pPopUpConnect.SetActive(true);
             }
             else
             {
+                pPopUpConnecting.SetActive(false);
                 pSelectGame.SetActive(false);
                 pOnline.SetActive(true);
                 backGameButton.gameObject.SetActive(true);

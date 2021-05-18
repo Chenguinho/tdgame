@@ -16,6 +16,9 @@ public class UserInterface : MonoBehaviour
     //Paneles de nivel bloqueado
     public GameObject pBlock2, pBlock3, pBlock4, pBlock5;
 
+    //Paneles
+    public GameObject pPopUpReloading;
+
     //Textos TextMeshPro de la barra superior
     public TextMeshProUGUI usernameText, starsText, pointsText;
     //Puntuaciones de cada nivel
@@ -45,14 +48,19 @@ public class UserInterface : MonoBehaviour
          * volver a cargar la información del usuario
         */
 
-        if (playerPrefs.GetComponent<PlayerPrefs>().getSource() != "MainMenu")
+        if (playerPrefs.GetComponent<PlayerPrefs>().getSource() != "MainMenu"
+            &&
+            playerPrefs.GetComponent<PlayerPrefs>().getSource() != "LevelMenu")
         {
             if (GetPlayer().getId() == 0)
             {
+                pPopUpReloading.SetActive(true);
                 GetPlayer().LoadPlayer(GetPlayer().getUsername());
+                pPopUpReloading.SetActive(false);
             }
             else
             {
+                pPopUpReloading.SetActive(true);
                 ReloadData();
             }
         }
@@ -204,9 +212,11 @@ public class UserInterface : MonoBehaviour
 
                     AssignOnlineLevelStats(level, values, player.GetComponent<Player>());
 
-                    Debug.Log("TODO OK");
+                    playerPrefs.GetComponent<PlayerPrefs>().setSource("MainMenu");
+                    pPopUpReloading.SetActive(false);
 
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                 
                 } else
                 {
                     Debug.Log("ERROR AL RECUPERAR LA INFORMACIÓN");

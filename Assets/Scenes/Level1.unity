@@ -15951,13 +15951,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stTurret:
-    prefab: {fileID: 1190133715413806105, guid: 9e69277238e82410e91e746b4f809fc2, type: 3}
+    prefab: {fileID: 2298045365057748259, guid: 4828a06965d7843fdb7f858d0e253a27, type: 3}
     cost: 100
-    upgradedPrefab: {fileID: 2237504127470033338, guid: 7c35d2271e839419d89552ad31e8785c, type: 3}
+    upgradedPrefab: {fileID: 7017801080793225811, guid: 93b1962e5b6404d7d8e75ad751238099, type: 3}
     upgradeCost: 60
     sellCost: 75
   missileLauncher:
-    prefab: {fileID: 5758046650027870226, guid: d9a91dbae7f7b47a4be3d1a4399e87ec, type: 3}
+    prefab: {fileID: 4309559359964065247, guid: eaff364b9921f493c8ff9583af5af8e7, type: 3}
     cost: 200
     upgradedPrefab: {fileID: 5758046650027870226, guid: 53edb6ed25464473f8531d8984151733, type: 3}
     upgradeCost: 120
