@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class DataStorer : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class DataStorer : MonoBehaviour
     public Player player;
     public GameManager gameManager;
     public LevelWon levelWon;
+
+    public Button retry, back, next;
 
     int level;
 
@@ -65,6 +68,8 @@ public class DataStorer : MonoBehaviour
 
         SaveSystem.SavePlayer(player);
 
+        ActiveButtons();
+
     }
 
     void StoreOnline()
@@ -92,10 +97,19 @@ public class DataStorer : MonoBehaviour
                 Debug.Log(www.error);
             } else
             {
-                Debug.Log("Datos almacenados correctamente");
+                ActiveButtons();
             }
 
         }
+    }
+
+    void ActiveButtons()
+    {
+
+        retry.interactable = true;
+        next.interactable = true;
+        back.interactable = true;
+
     }
 
 }

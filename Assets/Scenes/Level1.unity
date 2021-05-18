@@ -2069,7 +2069,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 176618755}
   m_OnClick:
     m_PersistentCalls:
@@ -11197,7 +11197,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 939619174}
   m_OnClick:
     m_PersistentCalls:
@@ -15817,7 +15817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -15842,7 +15842,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1383861565}
   m_OnClick:
     m_PersistentCalls:
@@ -17084,6 +17084,9 @@ MonoBehaviour:
   player: {fileID: 2005643209}
   gameManager: {fileID: 1491070610}
   levelWon: {fileID: 2018980876}
+  retry: {fileID: 176618754}
+  back: {fileID: 1383861564}
+  next: {fileID: 939619173}
 --- !u!1 &1496775995
 GameObject:
   m_ObjectHideFlags: 0
