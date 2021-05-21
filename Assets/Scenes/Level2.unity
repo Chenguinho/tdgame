@@ -866,7 +866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &66303782
 RectTransform:
   m_ObjectHideFlags: 0
@@ -906,15 +906,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12a7375d16a2048b1b3df7242191162d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: Level2
+  nextLevel: Level3
   points: {fileID: 886973778}
   stars:
   - {fileID: 86167848}
   - {fileID: 166784624}
   - {fileID: 1798878014}
-  current: {fileID: 0}
-  timer: {fileID: 0}
-  level: Level1
+  current: {fileID: 1491070609}
+  timer: {fileID: 1491070612}
+  level: Level2
 --- !u!114 &66303784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1055,7 +1055,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 324.32, y: 95}
-  m_SizeDelta: {x: 151, y: 150}
+  m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &75938876
 MonoBehaviour:
@@ -1926,7 +1926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21568628, g: 0.07450981, b: 0.20392157, a: 0.392}
+  m_Color: {r: 0.08290316, g: 0.10020356, b: 0.21698111, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10064,7 +10064,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.2481825, y: -104.60904}
+  m_AnchoredPosition: {x: 4.9999, y: -57.012}
   m_SizeDelta: {x: 546.22186, y: 114.02348}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &892255564
@@ -14543,7 +14543,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -324.71, y: 95}
-  m_SizeDelta: {x: 151, y: 150}
+  m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1331145661
 MonoBehaviour:
@@ -15879,7 +15879,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.2481902, y: -168.00003}
+  m_AnchoredPosition: {x: -0.000029564, y: -121}
   m_SizeDelta: {x: 287.45184, y: 54.757736}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1456461290
@@ -16360,9 +16360,9 @@ GameObject:
   - component: {fileID: 1491070609}
   - component: {fileID: 1491070610}
   - component: {fileID: 1491070611}
-  - component: {fileID: 1491070612}
   - component: {fileID: 1491070613}
   - component: {fileID: 1491070614}
+  - component: {fileID: 1491070612}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -16386,19 +16386,19 @@ MonoBehaviour:
   waves:
   - enemy: {fileID: 4968189195848219408, guid: 4deb39453c0ec49b29d057520f3ee7c5, type: 3}
     count: 5
-    rate: 0.5
+    rate: 1
+  - enemy: {fileID: 4968189195848219408, guid: 5ecd58dcdb9b146e9b9dd4b5be4f18ac, type: 3}
+    count: 15
+    rate: 0.33
   - enemy: {fileID: 4968189195848219408, guid: 4deb39453c0ec49b29d057520f3ee7c5, type: 3}
     count: 10
     rate: 1
+  - enemy: {fileID: 4968189195848219408, guid: faa2f55ce0ab14aada6c0db09b91695f, type: 3}
+    count: 5
+    rate: 0.125
   - enemy: {fileID: 4968189195848219408, guid: 4deb39453c0ec49b29d057520f3ee7c5, type: 3}
     count: 20
-    rate: 1
-  - enemy: {fileID: 4968189195848219408, guid: 4deb39453c0ec49b29d057520f3ee7c5, type: 3}
-    count: 10
-    rate: 2
-  - enemy: {fileID: 4968189195848219408, guid: 4deb39453c0ec49b29d057520f3ee7c5, type: 3}
-    count: 20
-    rate: 2
+    rate: 1.5
   time: 10
   spawnPoint: {fileID: 1825561202}
   countdownText: {fileID: 1568591768}
@@ -16445,7 +16445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb396063b21c14c0e97e530826d04c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 750
+  startMoney: 500
   startLives: 10
 --- !u!114 &1491070610
 MonoBehaviour:
@@ -16459,10 +16459,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6580002a1a964f46b2c70d63b490d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 0}
-  winPanel: {fileID: 0}
+  gameOverPanel: {fileID: 1185307081}
+  winPanel: {fileID: 66303781}
   dataStorer: {fileID: 1491070614}
-  level: 1
+  level: 2
 --- !u!114 &1491070611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16475,7 +16475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5af807f733bb491294c57107acec235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 141331783}
 --- !u!114 &1491070612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16516,10 +16516,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2005643209}
   gameManager: {fileID: 1491070610}
-  levelWon: {fileID: 0}
-  retry: {fileID: 0}
-  back: {fileID: 0}
-  next: {fileID: 0}
+  levelWon: {fileID: 66303783}
+  retry: {fileID: 1706605863}
+  back: {fileID: 75938876}
+  next: {fileID: 1331145661}
 --- !u!1 &1496775995
 GameObject:
   m_ObjectHideFlags: 0
@@ -18889,8 +18889,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 95}
-  m_SizeDelta: {x: 151, y: 150}
+  m_AnchoredPosition: {x: -0.00007655, y: 95}
+  m_SizeDelta: {x: 130, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1706605863
 MonoBehaviour:

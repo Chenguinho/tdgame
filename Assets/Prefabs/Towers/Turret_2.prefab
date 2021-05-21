@@ -244,7 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 25
   bullet: {fileID: 4901249866782681808, guid: ddfed0f7c74454362a65fcbe18a6c2f9, type: 3}
-  fireRate: 1.5
+  fireRate: 1.3
   useLaser: 0
   lineRenderer: {fileID: 0}
   impactEffect: {fileID: 0}

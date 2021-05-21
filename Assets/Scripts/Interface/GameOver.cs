@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
 
+    public int sum = 250;
+    public int sum2 = 150;
+
     public TextMeshProUGUI points;
     private int Stars;
     public GameObject[] stars;
@@ -46,12 +49,26 @@ public class GameOver : MonoBehaviour
 
         while (round < CurrentGame.Points)
         {
-            if (round + 5 < CurrentGame.Points)
+            if (round + sum < CurrentGame.Points)
+            {
+                round += sum;
+                points.text = round.ToString();
+
+                yield return new WaitForSeconds(.005f);
+            }
+            else if (round + sum2 < CurrentGame.Points)
+            {
+                round += sum2;
+                points.text = round.ToString();
+
+                yield return new WaitForSeconds(.001f);
+            }
+            else if (round + 5 < CurrentGame.Points)
             {
                 round += 5;
                 points.text = round.ToString();
 
-                yield return new WaitForSeconds(.005f);
+                yield return new WaitForSeconds(.001f);
             }
             else
             {

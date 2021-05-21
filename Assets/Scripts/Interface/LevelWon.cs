@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class LevelWon : MonoBehaviour
 {
 
-    private int sum = 100;
+    public int sum = 100;
+    public int sum2 = 200;
 
     public string nextLevel = "Level2";
     public TextMeshProUGUI points;
@@ -42,7 +43,13 @@ public class LevelWon : MonoBehaviour
                 points.text = round.ToString();
 
                 yield return new WaitForSeconds(.005f);
-            } else if(round + 5 < CurrentGame.Points)
+            } else if(round + sum2 < CurrentGame.Points) {
+                round += sum2;
+                points.text = round.ToString();
+
+                yield return new WaitForSeconds(.001f);
+            }
+            else if(round + 5 < CurrentGame.Points)
             {
                 round += 5;
                 points.text = round.ToString();
