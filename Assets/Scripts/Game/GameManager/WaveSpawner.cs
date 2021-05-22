@@ -41,7 +41,10 @@ public class WaveSpawner : MonoBehaviour
     }
 
     void Update()
-    { 
+    {
+
+        if (GameManager.gameEnded)
+            return;
 
         if (enemiesCount == w.count)
         {

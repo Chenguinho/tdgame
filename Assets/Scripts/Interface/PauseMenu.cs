@@ -11,10 +11,12 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-
-        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        if (!GameManager.gameEnded)
         {
-            Toggle();
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+            {
+                Toggle();
+            }
         }
 
     }

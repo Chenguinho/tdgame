@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
         if(CurrentGame.Lives <= 0)
         {
+
             EndGame();
         }
     }

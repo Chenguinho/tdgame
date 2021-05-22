@@ -13313,7 +13313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMoney: 325
-  startLives: 15
+  startLives: 1
 --- !u!114 &1491070610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13387,6 +13387,7 @@ MonoBehaviour:
   retry: {fileID: 176618754}
   back: {fileID: 1383861564}
   next: {fileID: 939619173}
+  level: 5
 --- !u!1 &1496775995
 GameObject:
   m_ObjectHideFlags: 0

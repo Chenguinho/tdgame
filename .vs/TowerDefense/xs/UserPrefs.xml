@@ -1,9 +1,12 @@
 ﻿<Properties StartupConfiguration="{17BB7AF0-A1AD-DCE4-09CE-1D3A3635465B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Interface/GameOver.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Interface/PauseMenu.cs">
     <Files>
-      <File FileName="Assets/Scripts/Interface/LevelWon.cs" Line="67" Column="10" />
-      <File FileName="Assets/Scripts/Data/DataStorer.cs" Line="71" Column="25" />
-      <File FileName="Assets/Scripts/Interface/GameOver.cs" Line="65" Column="14" NotebookId="1" />
+      <File FileName="Assets/Scripts/Interface/LevelWon.cs" Line="19" Column="36" />
+      <File FileName="Assets/Scripts/Game/GameManager/GameManager.cs" />
+      <File FileName="Assets/Scripts/Interface/PauseMenu.cs" Line="42" Column="18" />
+      <File FileName="Assets/Scripts/Game/Objects/Turret.cs" />
+      <File FileName="Assets/Scripts/Game/GameManager/WaveSpawner.cs" />
+      <File FileName="Assets/Scripts/Interface/UserInterface.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,9 +17,10 @@
                 <Node name="Data" expanded="True" />
                 <Node name="Game" expanded="True">
                   <Node name="GameManager" expanded="True" />
+                  <Node name="Objects" expanded="True" />
                 </Node>
                 <Node name="Interface" expanded="True">
-                  <Node name="GameOver.cs" selected="True" />
+                  <Node name="PauseMenu.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
@@ -27,7 +31,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="01fc5ddf-6cce-4b53-81de-1dd2fd74452a" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="39d5205b-f256-4573-b414-cd9d96b91867" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

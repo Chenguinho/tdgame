@@ -372,6 +372,7 @@ Transform:
   - {fileID: 913257845}
   - {fileID: 1038847396}
   - {fileID: 1442253817}
+  - {fileID: 1379641898}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -866,7 +867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &66303782
 RectTransform:
   m_ObjectHideFlags: 0
@@ -906,6 +907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12a7375d16a2048b1b3df7242191162d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sum: 100
+  sum2: 200
   nextLevel: Level3
   points: {fileID: 886973778}
   stars:
@@ -1854,6 +1857,7 @@ GameObject:
   - component: {fileID: 141331787}
   - component: {fileID: 141331786}
   - component: {fileID: 141331785}
+  - component: {fileID: 141331789}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -1951,6 +1955,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141331783}
   m_CullTransparentMesh: 0
+--- !u!114 &141331789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141331783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5af807f733bb491294c57107acec235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 141331783}
 --- !u!1 &166784624
 GameObject:
   m_ObjectHideFlags: 0
@@ -6873,7 +6890,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 141331789}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Restart
         m_Mode: 1
@@ -13573,6 +13590,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0892e02d0193437f85880ecb5c95f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sum: 250
+  sum2: 150
   points: {fileID: 522847743}
   stars:
   - {fileID: 1372679673}
@@ -15114,7 +15133,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 24248098}
     m_Modifications:
     - target: {fileID: 4137880168061513607, guid: e48285cd9c8c045dd9f65d34cc451648, type: 3}
       propertyPath: m_Name
@@ -15134,7 +15153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4137880168061513611, guid: e48285cd9c8c045dd9f65d34cc451648, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4137880168061513611, guid: e48285cd9c8c045dd9f65d34cc451648, type: 3}
       propertyPath: m_LocalRotation.y
@@ -15142,7 +15161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4137880168061513611, guid: e48285cd9c8c045dd9f65d34cc451648, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4137880168061513611, guid: e48285cd9c8c045dd9f65d34cc451648, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15150,7 +15169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4137880168061513611, guid: e48285cd9c8c045dd9f65d34cc451648, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 4137880168061513611, guid: e48285cd9c8c045dd9f65d34cc451648, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15170,6 +15189,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e48285cd9c8c045dd9f65d34cc451648, type: 3}
+--- !u!4 &1379641898 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4137880168061513611, guid: e48285cd9c8c045dd9f65d34cc451648, type: 3}
+  m_PrefabInstance: {fileID: 1379641897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1383495037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16014,7 +16038,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.0000038146973}
+  m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 0, y: 249.98596}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1466291811
@@ -16445,8 +16469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb396063b21c14c0e97e530826d04c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 500
-  startLives: 10
+  startMoney: 400
+  startLives: 5
 --- !u!114 &1491070610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16519,7 +16543,7 @@ MonoBehaviour:
   levelWon: {fileID: 66303783}
   retry: {fileID: 1706605863}
   back: {fileID: 75938876}
-  next: {fileID: 1331145661}
+  level: 2
 --- !u!1 &1496775995
 GameObject:
   m_ObjectHideFlags: 0
@@ -18540,7 +18564,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 141331789}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
@@ -19999,7 +20023,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1770927715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000015234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 591316069}
@@ -20007,8 +20031,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 389.7, y: 0}
-  m_SizeDelta: {x: 779.45087, y: 0}
+  m_AnchoredPosition: {x: 444.9, y: 0.000015258789}
+  m_SizeDelta: {x: 889.7952, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1770927717
 MonoBehaviour:
@@ -20057,8 +20081,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 250
-  m_fontSizeBase: 250
+  m_fontSize: 220
+  m_fontSizeBase: 220
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -21457,7 +21481,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 141331789}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1

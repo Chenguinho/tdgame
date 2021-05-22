@@ -13,14 +13,12 @@ public class DataStorer : MonoBehaviour
     public GameManager gameManager;
     public LevelWon levelWon;
 
-    public Button retry, back, next;
+    public Button retry, back;
 
-    int level;
+    public int level;
 
     void Start()
     {
-
-        level = gameManager.level;
 
         if (Player.id == 0)
             isOnline = false;
@@ -80,7 +78,7 @@ public class DataStorer : MonoBehaviour
     IEnumerator Online()
     {
 
-        string url = "http://chenguinho.zapto.org/tdgame/phpUnity/storeData.php";
+        string url = "http://chenguinho.zapto.org/tdgame/phpUnity/saveDatabase.php";
 
         WWWForm form = new WWWForm();
         form.AddField("id", Player.id);
@@ -107,7 +105,6 @@ public class DataStorer : MonoBehaviour
     {
 
         retry.interactable = true;
-        next.interactable = true;
         back.interactable = true;
 
     }

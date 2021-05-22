@@ -72,34 +72,38 @@ public class Turret : MonoBehaviour
     void Update()
     {
 
-        if(target == null)
+        if (!GameManager.gameEnded)
         {
+            if (target == null)
+            {
+                if (useLaser)
+                {
+                    if (lineRenderer.enabled)
+                    {
+                        lineRenderer.enabled = false;
+                        impactEffect.Stop();
+                        impactLight.enabled = false;
+                    }
+                }
+                return;
+            }
+
+            LockOnTarget();
+
             if (useLaser)
             {
-                if (lineRenderer.enabled)
-                {
-                    lineRenderer.enabled = false;
-                    impactEffect.Stop();
-                    impactLight.enabled = false;
-                }
+                Laser();
             }
-            return;
-        }
-
-        LockOnTarget();
-
-        if (useLaser)
-        {
-            Laser();
-        } else
-        {
-            if (fireCountdown <= 0f)
+            else
             {
-                Shoot();
-                fireCountdown = 1f / fireRate;
-            }
+                if (fireCountdown <= 0f)
+                {
+                    Shoot();
+                    fireCountdown = 1f / fireRate;
+                }
 
-            fireCountdown -= Time.deltaTime;
+                fireCountdown -= Time.deltaTime;
+            }
         }
 
     }

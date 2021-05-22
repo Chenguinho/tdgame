@@ -11384,6 +11384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0892e02d0193437f85880ecb5c95f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sum: 250
+  sum2: 150
   points: {fileID: 653896866}
   stars:
   - {fileID: 217415208}
@@ -13472,6 +13474,7 @@ MonoBehaviour:
   retry: {fileID: 176618754}
   back: {fileID: 1383861564}
   next: {fileID: 939619173}
+  level: 3
 --- !u!1 &1496775995
 GameObject:
   m_ObjectHideFlags: 0
