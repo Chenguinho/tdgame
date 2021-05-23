@@ -1,12 +1,10 @@
 ﻿<Properties StartupConfiguration="{17BB7AF0-A1AD-DCE4-09CE-1D3A3635465B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Interface/PauseMenu.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Game/GameManager/WaveSpawner.cs">
     <Files>
+      <File FileName="Assets/Scripts/Data/Music.cs" Line="43" Column="28" />
       <File FileName="Assets/Scripts/Interface/LevelWon.cs" Line="19" Column="36" />
-      <File FileName="Assets/Scripts/Game/GameManager/GameManager.cs" />
-      <File FileName="Assets/Scripts/Interface/PauseMenu.cs" Line="42" Column="18" />
-      <File FileName="Assets/Scripts/Game/Objects/Turret.cs" />
-      <File FileName="Assets/Scripts/Game/GameManager/WaveSpawner.cs" />
-      <File FileName="Assets/Scripts/Interface/UserInterface.cs" />
+      <File FileName="Assets/Scripts/Game/GameManager/GameManager.cs" Line="24" Column="27" />
+      <File FileName="Assets/Scripts/Game/GameManager/WaveSpawner.cs" Line="37" Column="31" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,12 +14,12 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Data" expanded="True" />
                 <Node name="Game" expanded="True">
-                  <Node name="GameManager" expanded="True" />
+                  <Node name="GameManager" expanded="True">
+                    <Node name="WaveSpawner.cs" selected="True" />
+                  </Node>
                   <Node name="Objects" expanded="True" />
                 </Node>
-                <Node name="Interface" expanded="True">
-                  <Node name="PauseMenu.cs" selected="True" />
-                </Node>
+                <Node name="Interface" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -31,7 +29,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="39d5205b-f256-4573-b414-cd9d96b91867" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="edc71272-6a75-4249-a0ce-37197972e1b1" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

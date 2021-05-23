@@ -33,6 +33,9 @@ public class WaveSpawner : MonoBehaviour
 
     void Start()
     {
+
+        Time.timeScale = 1.0f;
+
         enemiesAlive = 0;
         enemiesCount = 0;
         w = waves[waveIndex];

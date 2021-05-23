@@ -13417,6 +13417,7 @@ MonoBehaviour:
   winPanel: {fileID: 2018980872}
   dataStorer: {fileID: 1491070614}
   level: 3
+  music: {fileID: 0}
 --- !u!114 &1491070611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13429,6 +13430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5af807f733bb491294c57107acec235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1491070610}
   pauseMenu: {fileID: 1405695134}
 --- !u!114 &1491070612
 MonoBehaviour:
@@ -13473,7 +13475,6 @@ MonoBehaviour:
   levelWon: {fileID: 2018980876}
   retry: {fileID: 176618754}
   back: {fileID: 1383861564}
-  next: {fileID: 939619173}
   level: 3
 --- !u!1 &1496775995
 GameObject:

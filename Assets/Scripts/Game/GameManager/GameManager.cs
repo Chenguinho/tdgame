@@ -13,8 +13,14 @@ public class GameManager : MonoBehaviour
 
     public int level;
 
+    public Music music;
+
     void Start()
     {
+        music = GameObject.FindGameObjectWithTag("Music").GetComponent<Music>();
+        music.StopAll();
+        music.PlayMusic(music.GetAudioSource(level));
+
         gameEnded = false;
     }
 
@@ -32,15 +38,27 @@ public class GameManager : MonoBehaviour
 
     void EndGame()
     {
+        music.GetAudioSource(level).Stop();
         gameEnded = true;
         gameOverPanel.SetActive(true);
     }
 
     public void WinGame()
     {
+        music.GetAudioSource(level).Stop();
         gameEnded = true;
         winPanel.SetActive(true);
         dataStorer.StoreData();
+    }
+
+    public void PauseMusic()
+    {
+        music.GetAudioSource(level).Pause();
+    }
+
+    public void ResumeMusic()
+    {
+        music.GetAudioSource(level).Play();
     }
 
 }

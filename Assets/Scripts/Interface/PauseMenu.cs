@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public GameManager gameManager;
 
     [Header("Menú de pausa")]
     public GameObject pauseMenu;
@@ -26,12 +27,14 @@ public class PauseMenu : MonoBehaviour
         if (pauseMenu.activeSelf)
         {
             pauseMenu.SetActive(false);
+            gameManager.ResumeMusic();
             Time.timeScale = 1f;
         }
 
         else
         {
             pauseMenu.SetActive(true);
+            gameManager.PauseMusic();
             Time.timeScale = 0f;
         }
             

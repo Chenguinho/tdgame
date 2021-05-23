@@ -30,14 +30,18 @@ public class UserInterface : MonoBehaviour
     //Datos del usuario
     GameObject player;
     public GameObject playerPrefs;
-    string username;
-    int recordLevel, recordStars, recordPoints, userId;
+    int recordStars, recordPoints, userId;
+
+    //Musica
+    Music audio;
 
     void Start()
     {
 
-        //Obtenemos la musica
-        GameObject.FindGameObjectWithTag("Music").GetComponent<Music>().PlayMusic();
+        audio = GameObject.FindGameObjectWithTag("Music").GetComponent<Music>();
+
+        audio.StopLevelMusic();
+        audio.PlayMusic(audio.GetAudioSource(0));
 
         //Obtenemos el GameObject del jugador con la info asociada
         player = GameObject.FindGameObjectWithTag("Player");
