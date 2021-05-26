@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
+        Time.timeScale = 1.0f;
+
         music = GameObject.FindGameObjectWithTag("Music").GetComponent<Music>();
         music.StopAll();
         music.PlayMusic(music.GetAudioSource(level));
